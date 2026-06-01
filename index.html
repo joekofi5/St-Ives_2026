@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>St Ives · 2–6 Sept</title>
+<meta property="og:title" content="St Ives Trip · 2–6 September">
+<meta property="og:description" content="Our 5-day plan: coast walk, galleries, life drawing & more. Tap to explore each day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea:#0f5e6b; --sea-deep:#0a3d47; --sand:#f5eee1;
+    --coral:#e8623a; --coral-soft:#f0936f; --ink:#1b2b2e; --mist:#cfe0df;
+    --gold:#d8a44c; --paper:#fcf8f0; --line:#dfd3bf;
+    --shadow:0 14px 40px -18px rgba(10,61,71,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);
+    line-height:1.5;overflow-x:hidden;
+    background-image:radial-gradient(circle at 12% 8%,rgba(15,94,107,.06),transparent 40%),radial-gradient(circle at 88% 30%,rgba(232,98,58,.05),transparent 38%);
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:0 16px 60px}
+
+  /* ---------- HERO ---------- */
+  header{padding:38px 16px 22px;text-align:center;position:relative}
+  .kicker{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--coral);font-weight:600;margin-bottom:10px}
+  h1{font-family:'Fraunces',serif;font-weight:900;font-size:3.4rem;line-height:.9;color:var(--sea-deep);letter-spacing:-.02em}
+  h1 em{font-style:italic;font-weight:500;color:var(--coral);display:block;font-size:2.1rem;margin-top:4px}
+  .dates{margin-top:14px;font-size:.95rem;color:var(--sea);font-weight:500}
+  .dates b{color:var(--sea-deep)}
+  .wave{display:block;width:64px;height:4px;margin:18px auto 0;border-radius:3px;background:linear-gradient(90deg,var(--sea),var(--coral))}
+
+  /* ---------- DAY TABS ---------- */
+  nav{position:sticky;top:0;z-index:30;background:rgba(252,248,240,.92);backdrop-filter:blur(10px);
+    margin:22px -16px 0;padding:10px 16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .tabs{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:0 0 auto;border:1.5px solid var(--line);background:transparent;border-radius:999px;
+    padding:8px 15px;font-family:'Outfit';font-size:.82rem;font-weight:600;color:var(--sea);cursor:pointer;transition:.25s;white-space:nowrap}
+  .tab .d{font-family:'Fraunces';font-weight:900;margin-right:5px;color:var(--sea-deep)}
+  .tab.active{background:var(--sea-deep);border-color:var(--sea-deep);color:#fff}
+  .tab.active .d{color:var(--gold)}
+
+  /* ---------- DAY PANELS ---------- */
+  .day{display:none;animation:fade .4s ease}
+  .day.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .day-head{padding:26px 4px 8px}
+  .day-label{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--coral);font-weight:600}
+  .day-title{font-family:'Fraunces';font-weight:900;font-size:1.9rem;color:var(--sea-deep);line-height:1.05;margin-top:4px}
+  .day-sub{color:var(--sea);font-size:.92rem;margin-top:7px}
+
+  /* ---------- BOOKEND (arrive/leave) ---------- */
+  .bookend{text-align:center;padding:60px 24px;border:1.5px dashed var(--line);border-radius:22px;margin-top:20px;background:rgba(255,255,255,.4)}
+  .bookend .big{font-family:'Fraunces';font-size:2.6rem;font-weight:900;color:var(--sea-deep);font-style:italic}
+  .bookend p{color:var(--sea);margin-top:10px;font-size:.95rem}
+  .bookend .ico{font-size:2.4rem;display:block;margin-bottom:6px}
+
+  /* ---------- CARDS ---------- */
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;margin-top:14px;overflow:hidden;box-shadow:var(--shadow)}
+  .card-top{padding:16px 18px;cursor:pointer;display:flex;gap:13px;align-items:flex-start;position:relative}
+  .time{flex:0 0 auto;font-family:'Fraunces';font-weight:900;font-size:.9rem;color:#fff;background:var(--sea);
+    border-radius:9px;padding:6px 8px;text-align:center;min-width:58px;line-height:1.15}
+  .time small{display:block;font-family:'Outfit';font-weight:500;font-size:.62rem;opacity:.85}
+  .ct-body{flex:1;min-width:0}
+  .ct-title{font-weight:600;font-size:1.02rem;color:var(--ink);display:flex;align-items:center;gap:6px}
+  .ct-meta{font-size:.82rem;color:var(--sea);margin-top:3px}
+  .chev{flex:0 0 auto;color:var(--coral);transition:.3s;font-size:1.1rem;margin-top:2px}
+  .card.open .chev{transform:rotate(180deg)}
+  .detail{max-height:0;overflow:hidden;transition:max-height .45s ease}
+  .card.open .detail{max-height:900px}
+  .detail-in{padding:2px 18px 18px 18px;border-top:1px solid var(--paper)}
+  .detail-in p{font-size:.9rem;color:#3a4a4d;margin-top:10px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .tag{font-size:.72rem;background:var(--mist);color:var(--sea-deep);padding:4px 9px;border-radius:7px;font-weight:500}
+  .tag.cost{background:#fbe9d8;color:var(--coral)}
+  .tag.bus{background:#e3eee2;color:#2f6b3a}
+  .links{display:flex;gap:8px;margin-top:13px;flex-wrap:wrap}
+  .lnk{flex:1;min-width:120px;text-align:center;text-decoration:none;font-size:.8rem;font-weight:600;
+    padding:9px;border-radius:10px;border:1.5px solid var(--sea);color:var(--sea);transition:.2s}
+  .lnk.solid{background:var(--coral);border-color:var(--coral);color:#fff}
+  .lnk:active{transform:scale(.97)}
+
+  /* ---------- BUS BLOCK ---------- */
+  .bus{background:#eef6ee;border:1px solid #cfe3cf;border-radius:14px;padding:13px 15px;margin-top:14px}
+  .bus h4{font-family:'Outfit';font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#2f6b3a;font-weight:700;display:flex;align-items:center;gap:6px}
+  .bus-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed #cfe3cf;font-size:.88rem}
+  .bus-row:last-child{border:none}
+  .bus-row b{font-family:'Fraunces';color:var(--sea-deep)}
+  .bus-row span:first-child{color:#3a4a4d}
+
+  /* ---------- NOTE / TIP ---------- */
+  .tip{background:#fff6ea;border-left:4px solid var(--gold);padding:13px 16px;border-radius:0 12px 12px 0;margin-top:15px;font-size:.86rem;color:#6b5524}
+  .tip b{color:#8a6a1e}
+  .warn{background:#fdeee7;border-left:4px solid var(--coral)}
+  .warn b{color:var(--coral)}
+
+  /* ---------- EAT / DRINK SECTION ---------- */
+  .sect{font-family:'Fraunces';font-weight:900;font-size:1.15rem;color:var(--coral);margin:26px 4px 4px;display:flex;align-items:center;gap:8px}
+  .sect::before{content:'';width:22px;height:2px;background:var(--coral)}
+
+  /* ---------- COST SUMMARY ---------- */
+  .total{background:var(--sea-deep);color:#fff;border-radius:18px;padding:20px;margin-top:16px;box-shadow:var(--shadow)}
+  .total h4{font-family:'Fraunces';font-size:1.1rem;color:var(--gold)}
+  .total-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.13);font-size:.9rem}
+  .total-row:last-of-type{border:none}
+  .total-row b{font-family:'Fraunces'}
+  .grand{margin-top:10px;padding-top:12px;border-top:2px solid var(--gold);display:flex;justify-content:space-between;align-items:baseline}
+  .grand .g{font-family:'Fraunces';font-weight:900;font-size:1.6rem;color:var(--gold)}
+  .total small{opacity:.7;font-size:.74rem;display:block;margin-top:8px;line-height:1.4}
+
+  /* ---------- SHARE BAR ---------- */
+  .share{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:40;display:flex;gap:8px;width:calc(100% - 32px);max-width:488px}
+  .share a,.share button{flex:1;border:none;cursor:pointer;font-family:'Outfit';font-weight:700;font-size:.86rem;
+    padding:14px;border-radius:14px;text-decoration:none;text-align:center;box-shadow:0 8px 24px -6px rgba(10,61,71,.5)}
+  .share .wa{background:#25d366;color:#fff}
+  .share .top{background:#fff;color:var(--sea-deep);border:1.5px solid var(--line);flex:0 0 54px}
+  footer{text-align:center;padding:34px 16px 90px;color:var(--sea);font-size:.8rem}
+  footer .h{font-family:'Fraunces';font-style:italic;font-size:1.1rem;color:var(--sea-deep)}
+  .map-pic{width:100%;border-radius:16px;margin-top:14px;display:block;border:1px solid var(--line)}
+  .alt{background:#fff;border:1.5px dashed var(--coral-soft);border-radius:16px;padding:16px 18px;margin-top:16px}
+  .alt h4{font-family:'Fraunces';color:var(--coral);font-size:1.05rem}
+  .alt p{font-size:.86rem;color:#3a4a4d;margin-top:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">Cornwall · The Warren</div>
+  <h1>St&nbsp;Ives<em>a long weekend</em></h1>
+  <div class="dates"><b>Wed 2</b> – <b>Sun 6 September</b> · Glas &amp; Driftwood Heights</div>
+  <span class="wave"></span>
+</header>
+
+<nav>
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-day="0"><span class="d">W</span>Arrive</button>
+    <button class="tab" data-day="1"><span class="d">T</span>Coast Walk</button>
+    <button class="tab" data-day="2"><span class="d">F</span>Free Day</button>
+    <button class="tab" data-day="3"><span class="d">S</span>Art Day</button>
+    <button class="tab" data-day="4"><span class="d">S</span>Leave</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- ===== DAY 0 — WED ARRIVE ===== -->
+  <section class="day active" data-day="0">
+
+    <div class="day-head" style="text-align:center;padding-top:30px">
+      <div class="day-label">Wednesday 2 September</div>
+      <div class="day-title" style="font-size:2rem">We're going to<br>St&nbsp;Ives 🌊</div>
+      <div class="day-sub">Settle in, let Joe cook, cards &amp; sea shanties at the Pilchard Press.</div>
+    </div>
+
+    <!-- Properties -->
+    <div style="margin-top:20px">
+      <div class="sect">🏠 Where we're staying</div>
+
+      <!-- GLAS -->
+      <div class="card" style="margin-top:14px">
+        <div style="position:relative;overflow:hidden;border-radius:16px 16px 0 0;height:200px">
+          <img src="https://webpics.aspects-holidays.co.uk/3513/main.jpg?w=600&h=400&mode=crop"
+               onerror="this.src='https://webpics.aspects-holidays.co.uk/3513/2.jpg?w=600&h=400&mode=crop'"
+               alt="Glas, St Ives" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,61,71,.7));padding:12px 16px">
+            <span style="color:#fff;font-family:'Fraunces',serif;font-weight:900;font-size:1.3rem">Glas</span>
+            <span style="color:rgba(255,255,255,.8);font-size:.78rem;margin-left:8px">2 bed · sleeps 4 · balcony · sea views</span>
+          </div>
+        </div>
+        <!-- mini photo strip -->
+        <div style="display:flex;gap:4px;padding:4px;background:#f5eee1">
+          <img src="https://webpics.aspects-holidays.co.uk/3513/2.jpg?w=200&h=130&mode=crop" style="flex:1;height:70px;object-fit:cover;border-radius:8px" alt="">
+          <img src="https://webpics.aspects-holidays.co.uk/3513/3.jpg?w=200&h=130&mode=crop" style="flex:1;height:70px;object-fit:cover;border-radius:8px" alt="">
+          <img src="https://webpics.aspects-holidays.co.uk/3513/4.jpg?w=200&h=130&mode=crop" style="flex:1;height:70px;object-fit:cover;border-radius:8px" alt="">
+        </div>
+        <div style="padding:14px 16px 16px">
+          <p style="font-size:.88rem;color:#3a4a4d;line-height:1.5">Colourful two-bedroom apartment on St Andrews Street with a balcony overlooking the harbour. Bright, well-equipped, a stone's throw from the waterfront — and dogs welcome.</p>
+          <div class="tags" style="margin-top:10px"><span class="tag">Dogs welcome</span><span class="tag">Balcony</span><span class="tag">Sea views</span><span class="tag">WiFi</span></div>
+          <div class="links" style="margin-top:12px">
+            <a class="lnk solid" href="https://www.aspects-holidays.co.uk/cornwall/west-cornwall/st-ives/the-warren/p/glas-st-ives" target="_blank">View on Aspects</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRIFTWOOD HEIGHTS -->
+      <div class="card" style="margin-top:14px">
+        <div style="position:relative;overflow:hidden;border-radius:16px 16px 0 0;height:200px">
+          <img src="https://webpics.aspects-holidays.co.uk/4043/main.jpg?w=600&h=400&mode=crop"
+               onerror="this.src='https://webpics.aspects-holidays.co.uk/4043/2.jpg?w=600&h=400&mode=crop'"
+               alt="Driftwood Heights" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,61,71,.7));padding:12px 16px">
+            <span style="color:#fff;font-family:'Fraunces',serif;font-weight:900;font-size:1.3rem">Driftwood Heights</span>
+            <span style="color:rgba(255,255,255,.8);font-size:.78rem;margin-left:8px">2 bed · sleeps 4 · balcony · bay views</span>
+          </div>
+        </div>
+        <!-- mini photo strip -->
+        <div style="display:flex;gap:4px;padding:4px;background:#f5eee1">
+          <img src="https://webpics.aspects-holidays.co.uk/4043/2.jpg?w=200&h=130&mode=crop" style="flex:1;height:70px;object-fit:cover;border-radius:8px" alt="">
+          <img src="https://webpics.aspects-holidays.co.uk/4043/3.jpg?w=200&h=130&mode=crop" style="flex:1;height:70px;object-fit:cover;border-radius:8px" alt="">
+          <img src="https://webpics.aspects-holidays.co.uk/4043/4.jpg?w=200&h=130&mode=crop" style="flex:1;height:70px;object-fit:cover;border-radius:8px" alt="">
+        </div>
+        <div style="padding:14px 16px 16px">
+          <p style="font-size:.88rem;color:#3a4a4d;line-height:1.5">Reverse-level apartment with breathtaking far-reaching views across St Ives Bay. The master bedroom has a balcony reached through a sash window — perfect for watching the fishing boats and Godrevy Lighthouse.</p>
+          <div class="tags" style="margin-top:10px"><span class="tag">Bay views</span><span class="tag">Balcony</span><span class="tag">King bed</span><span class="tag">WiFi</span></div>
+          <div class="links" style="margin-top:12px">
+            <a class="lnk solid" href="https://www.aspects-holidays.co.uk/cornwall/west-cornwall/st-ives/the-warren/p/driftwood-heights" target="_blank">View on Aspects</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="time">🚂<small>travel</small></div>
+        <div class="ct-body">
+          <div class="ct-title">Getting here — train via St Erth</div>
+          <div class="ct-meta">Mainline to St Erth, then the branch line to St Ives</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>The best way in is by train: take the mainline towards <b>Penzance</b> and change at <b>St Erth</b> onto the short <b>St Ives Bay Line</b> branch — a spectacular 10-minute coastal ride into St Ives (sit on the right for the sea views). Book the whole journey as one ticket on Trainline.</p>
+        <div class="tip" style="margin-top:12px"><b>Estimated fare:</b> around <b>£70 each way</b> from London on an Advance ticket — book early for the best price.</div>
+        <div class="tags"><span class="tag">Change at St Erth</span><span class="tag cost">~£70 each way</span><span class="tag">2/hr</span></div>
+        <div class="links">
+          <a class="lnk solid" href="https://www.thetrainline.com/train-times/penzance-to-st-ives-cornwall" target="_blank">Check fares</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card open">
+      <div class="card-top">
+        <div class="time">eve<small>cook in</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🍳 Joe's cooking tonight</div>
+          <div class="ct-meta">First night supper at the flat</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p><b>Joe's on dinner</b> this evening — an easy, relaxed start after travelling. Worth a quick shop on the way in or once settled: there's a <b>Co-op</b> and <b>Tesco</b> in town for the basics, plus the <b>St Ives Bakery</b> and harbourside fishmongers if Joe fancies fresh fish for the first night. Pour a glass, get something simple on, and ease into the holiday.</p>
+        <div class="tags"><span class="tag">Supper at the flat</span><span class="tag">Shop: Co-op / Tesco</span><span class="tag">Fresh fish nearby</span></div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="time">🃏<small>after</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🎶 Cards &amp; sea shanties</div>
+          <div class="ct-meta">The Pilchard Press · first-night plan</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>After Joe's supper, head down to <b>The Pilchard Press</b> for a few hands of cards and a pint while the <b>sea shanties</b> play — the perfect easygoing way to kick off the trip. Bring a pack of cards.</p>
+        <div class="tags"><span class="tag">Cards</span><span class="tag">Sea shanties</span><span class="tag">Pilchard Press</span></div>
+      </div></div>
+    </div>
+
+    <div class="tip"><b>Tip:</b> Both flats are a 2-min walk from the harbour, so The Pilchard Press and the other harbourside pubs are right on the doorstep.</div>
+  </section>
+
+  <!-- ===== DAY 1 — THU COAST WALK ===== -->
+  <section class="day" data-day="1">
+    <div class="day-head">
+      <div class="day-label">Thursday 3 Sept · First full day</div>
+      <div class="day-title">Coast walk to<br>Gurnard's Head</div>
+      <div class="day-sub">Bus out to Zennor, walk the wild ~2-hour cliff path west to Gurnard's Head, and arrive in good time for a relaxed pub lunch. Bus back to town in the afternoon, then pubs. No evening plans needed.</div>
+    </div>
+
+    <div class="bus">
+      <h4>🚌 Outbound · 16A St Ives → Zennor</h4>
+      <div class="bus-row"><span>St Ives Cinema (dep)</span><b>09:38</b></div>
+      <div class="bus-row"><span>St Ives Tesco / Malakoff</span><b>09:30</b></div>
+      <div class="bus-row"><span>arrive Zennor (Wicca Farm)</span><b>09:50</b></div>
+    </div>
+    <div class="tip"><b>Catch the 09:38 from the Cinema stop</b> (or board earlier at Tesco/Malakoff at 09:30). It's about a 20-min ride. Hop off at <b>Wicca Farm / Zennor</b> for the village. Buy on board (contactless) or use the Transport for Cornwall app. Mon–Sat only — no Sunday service.</div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="time">10:00<small>coffee</small></div>
+        <div class="ct-body">
+          <div class="ct-title">☕ Zennor village</div>
+          <div class="ct-meta">Quick stop before the cliffs</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>Stretch your legs in the tiny granite hamlet of Zennor. Grab a coffee at the <b>Moomaid of Zennor</b> café or peek at the Mermaid Chair in St Senara's Church, then follow the signed footpath past the church down to the coast path. Aim to be walking by about 10:15.</p>
+        <div class="tags"><span class="tag">Mermaid legend</span><span class="tag">Coffee</span><span class="tag bus">Path starts here</span></div>
+      </div></div>
+    </div>
+
+    <div class="card open">
+      <div class="card-top">
+        <div class="time">10:15<small>~2 hr</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🥾 Zennor → Gurnard's Head coast path</div>
+          <div class="ct-meta">~3 mi · about 2 hrs · rugged &amp; scenic</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>Join the South West Coast Path at Zennor Head and head <b>west</b>, keeping the sea on your right. The path winds along dramatic granite clifftops above Pendour Cove and Mussel Point, dipping and climbing between coves — only ~3 miles but genuinely slow-going and rocky, so it fills a good 2 hours. Watch for seals, stonechats and diving gannets. At Gurnard's Head (a gurnard-fish-shaped promontory, worth a quick explore) turn inland and climb the short track up to the <b>Gurnard's Head Hotel</b> on the B3306.</p>
+        <div class="tip warn" style="margin-top:12px"><b>Footwear matters:</b> the path is uneven, worn and slippery over rock in places — proper walking shoes/boots, water and a snack. It's beautiful but not a stroll.</div>
+        <div class="tags"><span class="tag">~2 hrs</span><span class="tag">Rugged · undulating</span><span class="tag">Seals</span><span class="tag cost">Free</span></div>
+        <div class="links">
+          <a class="lnk solid" href="https://www.iwalkcornwall.co.uk/walk/zennor_to_gurnards_head" target="_blank">Route guide</a>
+          <a class="lnk" href="https://www.google.com/maps/dir/Zennor/Gurnards+Head+Hotel,+Zennor/data=!4m2!4m1!3e2" target="_blank">Open in Maps</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="time">12:15<small>lunch</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🍽️ Lunch at The Gurnard's Head</div>
+          <div class="ct-meta">Famous coast-road inn · book a table</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>You'll reach the pub around <b>12:00–12:30</b> — perfect for your 1–2pm lunch window with time to settle in. The <b>Gurnard's Head Hotel</b> is a well-loved, slightly upmarket inn (proper Cornish cooking, local ales, cosy rooms). It's popular and remote, so <b>book ahead</b> — call <b>01736 796928</b>. The bus stop is right outside, so no rush after.</p>
+        <div class="tags"><span class="tag">Lunch 12:00–14:30</span><span class="tag cost">~£18–28pp</span><span class="tag">Book ahead</span></div>
+        <div class="links">
+          <a class="lnk solid" href="https://www.gurnardshead.co.uk/" target="_blank">Menu / book</a>
+          <a class="lnk" href="https://maps.google.com/?q=Gurnard's+Head+Hotel" target="_blank">Map</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="bus">
+      <h4>🚌 Return · 16A Gurnard's Head → St Ives</h4>
+      <div class="bus-row"><span>Gurnard's Head Hotel (dep)</span><b>12:47 · 15:47</b></div>
+      <div class="bus-row"><span>Zennor Turn</span><b>12:52 · 15:52</b></div>
+      <div class="bus-row"><span>arrive St Ives Cinema</span><b>13:11 · 16:11</b></div>
+    </div>
+    <div class="tip"><b>Two good options back:</b> the <b>12:47</b> is too soon if you've sat down to eat — so for a proper 1–2pm lunch, take the <b>15:47</b> (arrives St Ives 16:11), giving you a relaxed couple of hours at the pub. The stop is directly outside the hotel. Always sanity-check live times on the Transport for Cornwall app on the day.</div>
+
+    <div class="sect">🍺 Back in town</div>
+    <div class="card">
+      <div class="card-top">
+        <div class="time">~16:15<small>pubs</small></div>
+        <div class="ct-body">
+          <div class="ct-title">Harbourside pubs</div>
+          <div class="ct-meta">No further plans — reward time</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>Back in St Ives, settle in at the harbourside: <b>The Sloop Inn</b> (oldest pub in town, c.1312), <b>The Lifeboat Inn</b>, <b>The Hub</b>, and <b>St Ives Brewery's micro taproom</b> on Fore Street (locals' favourite). Easy evening, well earned.</p>
+        <div class="tags"><span class="tag">Sloop Inn</span><span class="tag">Lifeboat Inn</span><span class="tag">SI Brewery Tap</span></div>
+      </div></div>
+    </div>
+
+    <div class="alt">
+      <h4>↩︎ If the coast path looks too rugged</h4>
+      <p>The walk is short but genuinely rocky. For an easier 2 hours, walk the <b>Zennor Churchway (Coffin Path)</b> instead — an ancient, mostly-flat inland route through farmland that also links Zennor and Gurnard's Head. Same buses, same pub lunch, far gentler underfoot.</p>
+    </div>
+  </section>
+
+  <!-- ===== DAY 2 — FRI GALLERIES ===== -->
+  <section class="day" data-day="2">
+    <div class="day-head">
+      <div class="day-label">Friday 4 Sept</div>
+      <div class="day-title">A free day<br>pick your adventure</div>
+      <div class="day-sub">Art's all booked for Saturday, so Friday's open. Here's a menu of things that are actually running in early September — mix and match. Most need a quick call or online booking the day before.</div>
+    </div>
+
+    <div class="sect">🌊 On the water</div>
+    <div class="card open">
+      <div class="card-top">
+        <div class="time">AM/PM<small>~1 hr</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🦭 Seal Island sea safari</div>
+          <div class="ct-meta">From the harbour · Atlantic grey seals, maybe dolphins</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>The classic St Ives outing and a brilliant one for a group. Boats leave the harbour throughout the day (Easter–Nov), heading ~3.5 miles west past Porthmeor and the Tate to <b>Seal Island (The Carracks)</b>, where you watch the colony up close before cruising back. Around an hour, suitable for all ages, dogs go free. Several operators (St Ives Boats' "Dolly P", Bluefin/Yellowfin catamarans, the Little Mermaid) — just turn up at the harbour kiosks or pre-book.</p>
+        <div class="tip" style="margin-top:12px"><b>Tip:</b> trips depend on tide &amp; weather, so check the day before. There's also a longer "Ultimate" safari (~9am) that pushes west past Gurnard's Head to Pendeen and over to Godrevy.</div>
+        <div class="tags"><span class="tag">~1 hr</span><span class="tag cost">£30 adult / £15 child</span><span class="tag">All ages</span></div>
+        <div class="links">
+          <a class="lnk solid" href="https://stivesboats.co.uk/" target="_blank">St Ives Boats</a>
+          <a class="lnk" href="https://www.sealisland-stives.com/" target="_blank">Other operator</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="sect">🏖️ Beaches &amp; easy days</div>
+    <div class="card">
+      <div class="card-top">
+        <div class="time">any<small>relax</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🏄 Beach day + a surf lesson</div>
+          <div class="ct-meta">Porthmeor for surf · Porthminster for sand</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p><b>Porthmeor</b> is the surf beach (right behind the Tate) — the St Ives Surf School runs group lessons and board/wetsuit hire. <b>Porthminster</b> is the calm, golden, family beach with its famous café. <b>Porthgwidden</b> is the small sheltered sun-trap on The Island. Pick one and do very little.</p>
+        <div class="tags"><span class="tag">Surf lessons</span><span class="tag">Board hire</span><span class="tag cost">From ~£35 lesson</span></div>
+        <div class="links"><a class="lnk" href="https://maps.google.com/?q=Porthmeor+Beach+St+Ives" target="_blank">Porthmeor map</a></div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="time">PM<small>train</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🚂 St Erth branch line to Carbis Bay</div>
+          <div class="ct-meta">One of the prettiest short rail rides in Britain</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>A lovely low-effort option: hop on the scenic St Ives Bay Line (runs ~every 30 min) one stop to <b>Carbis Bay</b> for its gorgeous beach, or all the way to <b>St Erth</b> and back just for the clifftop views over the bay. Great if the weather's kind and legs are tired after Thursday's walk.</p>
+        <div class="tags"><span class="tag">~30 min trains</span><span class="tag cost">Cheap day return</span><span class="tag">Carbis Bay beach</span></div>
+      </div></div>
+    </div>
+
+    <div class="sect">🏰 Bigger day out</div>
+    <div class="card">
+      <div class="card-top">
+        <div class="time">day<small>train</small></div>
+        <div class="ct-body">
+          <div class="ct-title">St Michael's Mount &amp; Marazion</div>
+          <div class="ct-meta">Castle open Fri · gardens close for the season today</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>Friday is actually the <b>one day this trip the Mount works</b> — the castle is open (it's shut Saturdays) and the gardens are open through <b>4 Sept</b>, their last day of the season. Train St Ives→Penzance every ~30 min (20–40 min via St Erth), then a short bus/walk to Marazion. Cross the causeway at low tide or by boat at high tide. Allow 2–4 hrs on the island; pre-book a timed castle/garden ticket.</p>
+        <div class="tip warn" style="margin-top:12px"><b>Check before you go:</b> the causeway opening depends on the tide — use the Mount's "Causeway Calculator", and book castle + boat tickets online in advance (no tickets sold at the entrance in season).</div>
+        <div class="tags"><span class="tag">Castle open Fri</span><span class="tag">Gardens last day</span><span class="tag cost">~£20pp + travel</span><span class="tag">Pre-book</span></div>
+        <div class="links">
+          <a class="lnk solid" href="https://stmichaelsmount.co.uk/plan-your-visit/ticket-prices/" target="_blank">Tickets &amp; tides</a>
+          <a class="lnk" href="https://maps.google.com/?q=St+Michael's+Mount+Marazion" target="_blank">Map</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="sect">🍷 Friday dinner</div>
+    <div class="card">
+      <div class="card-top">
+        <div class="time">19:30<small>eat</small></div>
+        <div class="ct-body">
+          <div class="ct-title">Dinner picks</div>
+          <div class="ct-meta">Book ahead — September is busy</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p><b>Porthminster Beach Café</b> (the special-occasion one — superb seafood over the bay) · <b>Black Rock</b> (modern Cornish, central) · <b>Ococo</b> (small-plates favourite) · <b>Harbour Fish &amp; Chips</b> for a relaxed night. Reserve Porthminster well ahead.</p>
+        <div class="tags"><span class="tag">Porthminster Beach Café</span><span class="tag">Black Rock</span><span class="tag">Ococo</span></div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ===== DAY 3 — SAT ART DAY ===== -->
+  <section class="day" data-day="3">
+    <div class="day-head">
+      <div class="day-label">Saturday 5 Sept · The art day</div>
+      <div class="day-title">Life drawing,<br>then the galleries</div>
+      <div class="day-sub">Start with the figure, then spend the afternoon on the St Ives art trail — Hepworth's garden, the Tate and the best private galleries, all within a 10-min walk. Everything's open till 17:20, so the morning class fits perfectly.</div>
+    </div>
+
+    <div class="card open">
+      <div class="card-top">
+        <div class="time">10:30<small>★ class</small></div>
+        <div class="ct-body">
+          <div class="ct-title">✏️ Life Drawing — St Ives School of Painting</div>
+          <div class="ct-meta">Island Centre, Island Road TR26 1NT · 2.5 hrs</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>Tutor-led life drawing from the nude model, 10:30–13:00. All levels welcome — tell them if you're a beginner. Materials available to borrow. <b>This is the only life-drawing session during your stay</b> (Thursday evening sessions stop at the end of August), so book early — places are limited.</p>
+        <div class="tip warn" style="margin-top:12px"><b>Book now:</b> Sat 5 Sep, 10:30–13:00, <b>£30pp</b>. No under-16s. No photos in class. Call <b>01736 797180</b> or book online.</div>
+        <div class="tags"><span class="tag">10:30–13:00</span><span class="tag cost">£30pp</span><span class="tag">All levels</span></div>
+        <div class="links">
+          <a class="lnk solid" href="https://www.schoolofpainting.co.uk/courses/life-drawing/" target="_blank">Book the class</a>
+          <a class="lnk" href="https://maps.google.com/?q=Island+Centre+Island+Road+St+Ives" target="_blank">Map</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="time">13:15<small>lunch</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🥪 Quick lunch</div>
+          <div class="ct-meta">On The Island, then up to the galleries</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>The class finishes right by the headland. Grab a relaxed lunch at <b>Porthgwidden Beach Café</b> (2 mins), or a pasty from <b>St Ives Bakery</b> to eat on the move, then head up toward Barnoon Hill for the galleries. Keep it light — there's a lot of art ahead.</p>
+        <div class="tags"><span class="tag cost">~£10–18pp</span></div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="time">14:00<small>★</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🌿 Barbara Hepworth Museum &amp; Sculpture Garden</div>
+          <div class="ct-meta">Barnoon Hill · her studio &amp; garden, as she left it</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>The highlight, and a perfect follow-on from a morning of drawing the figure. Hepworth's actual home, studio and the sub-tropical garden where her bronzes stand exactly where she placed them. Small, tranquil, deeply atmospheric — rated 4.7. Allow ~1 hr.</p>
+        <div class="tip" style="margin-top:12px"><b>Book a timed slot:</b> it's tiny and popular, so reserve online for early afternoon. Your ticket is separate from the Tate.</div>
+        <div class="tags"><span class="tag">Open till 17:20</span><span class="tag cost">£11pp</span><span class="tag">Pre-book</span></div>
+        <div class="links">
+          <a class="lnk solid" href="https://www.tate.org.uk/visit/tate-st-ives/barbara-hepworth-museum-and-sculpture-garden" target="_blank">Book / info</a>
+          <a class="lnk" href="https://maps.google.com/?q=Barbara+Hepworth+Museum+St+Ives" target="_blank">Map</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="time">15:15<small>→</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🗿 Penwith Gallery</div>
+          <div class="ct-meta">Back Road East · sculpture courtyard · free</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>A short walk from the Hepworth. Home of the Penwith Society (founded 1949 by Hepworth, Nicholson, Leach &amp; co.) in a former pilchard factory — three galleries, a <b>sculpture courtyard</b> and Hepworth's white marble "Magic Stone". Free, and many rate it above the Tate. Closes 17:00, so do this before the Tate.</p>
+        <div class="tags"><span class="tag">Mon–Sat to 17:00</span><span class="tag cost">Free</span><span class="tag">Sculpture</span></div>
+        <div class="links"><a class="lnk" href="https://maps.google.com/?q=Penwith+Gallery+St+Ives" target="_blank">Map</a></div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="time">15:50<small>🌊</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🌊 Tate St Ives</div>
+          <div class="ct-meta">Porthmeor Beach · last entry well before 17:20</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>Finish at the Tate (right next door on Porthmeor). Hepworth, Nicholson, Heron, Lanyon plus rotating exhibitions, with a rooftop café and big sea views — a lovely place to end the day. The ticket desk closes 45 min before the gallery, so arrive by ~16:15 to be safe.</p>
+        <div class="tip warn" style="margin-top:12px"><b>Timing note:</b> if the group wants longer in the Tate, do it first thing after lunch (it's open till 17:20) and slot the Hepworth/Penwith around it — they all sit within a few minutes of each other.</div>
+        <div class="tags"><span class="tag">Open till 17:20</span><span class="tag cost">£15.50pp</span><span class="tag">Café</span></div>
+        <div class="links">
+          <a class="lnk solid" href="https://www.tate.org.uk/visit/tate-st-ives" target="_blank">Book / info</a>
+          <a class="lnk" href="https://maps.google.com/?q=Tate+St+Ives" target="_blank">Map</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="time">opt<small>extra</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🎨 New Craftsman &amp; Anima Mundi</div>
+          <div class="ct-meta">Fore St &amp; Street-an-Pol · free · if time allows</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>If you move quickly, drop into two excellent private galleries on the way back into town. <b>New Craftsman</b> (Fore St, since the 1960s) — painters, potters &amp; jewellers; some call it the best in town. <b>Anima Mundi</b> (Street-an-Pol) — serious contemporary shows. Both free, both close around 16:30–17:00, so catch them earlier if they're a priority.</p>
+        <div class="tags"><span class="tag cost">Free</span><span class="tag">New Craftsman to 17:00</span><span class="tag">Anima Mundi to 16:30</span></div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="time">eve<small>relax</small></div>
+        <div class="ct-body">
+          <div class="ct-title">🍷 Final-night dinner</div>
+          <div class="ct-meta">Last evening — make it a good one</div>
+        </div>
+        <div class="chev">⌄</div>
+      </div>
+      <div class="detail"><div class="detail-in">
+        <p>Round off the trip with dinner: <b>Porthminster Beach Café</b> for special-occasion seafood over the bay, <b>Black Rock</b> or <b>Ococo</b> in town, or keep it easy at <b>The Sloop</b>. Catch the sunset from <b>Porthmeor Beach</b> or the Tate café terrace first. Book ahead — Saturdays fill fast.</p>
+        <div class="tags"><span class="tag">Porthminster</span><span class="tag">Sunset at Porthmeor</span></div>
+      </div></div>
+    </div>
+
+    <div class="alt">
+      <h4>🏺 One more for ceramics fans</h4>
+      <p>If sculpture and pottery are your thing, the <b>Leach Pottery</b> (Higher Stennack, ~15-min walk up or one stop on the 16A) is Bernard Leach's working studio &amp; museum — open Mon–Sat to 17:00, ~£8pp. Easiest to squeeze in before the life drawing if you fancy an early start, since the afternoon's full.</p>
+    </div>
+  </section>
+
+  <!-- ===== DAY 4 — SUN LEAVE ===== -->
+  <section class="day" data-day="4">
+    <div class="bookend">
+      <span class="ico">👋</span>
+      <div class="big">Leaving</div>
+      <p>Sunday 6 September<br>Last coffee on the harbour, pack up Glas &amp; Driftwood Heights, and one final look at the bay before the road home.</p>
+    </div>
+    <div class="tip"><b>Before you go:</b> grab breakfast at <b>The Digey Food Room</b> or a flat white from <b>Yellow Canary</b>, and pick up Cornish fudge from the harbourfront for the journey.</div>
+  </section>
+
+  <!-- ===== COST SUMMARY (always visible under each art day, shown once) ===== -->
+  <div class="total" id="costs">
+    <h4>💷 Saturday art day costs · per person</h4>
+    <div class="total-row"><span>Life drawing class (10:30)</span><b>£30.00</b></div>
+    <div class="total-row"><span>Barbara Hepworth Museum</span><b>£11.00</b></div>
+    <div class="total-row"><span>Tate St Ives</span><b>£15.50</b></div>
+    <div class="total-row"><span>Penwith Gallery</span><b>Free</b></div>
+    <div class="total-row"><span>New Craftsman · Anima Mundi</span><b>Free</b></div>
+    <div class="total-row"><span>Leach Pottery (optional)</span><b>£8.00</b></div>
+    <div class="grand"><span>Per person</span><span class="g">£56.50<small style="font-size:.8rem"> – £64.50</small></span></div>
+    <small>Tate/Hepworth prices are the "with donation" rate; concessions are slightly less and under-18s are free. Add ~£8 if you do Leach. A Tate "Local Pass" (£5/yr, Cornwall residents) gives free entry to both Tate sites — not applicable for visitors.</small>
+  </div>
+
+  <footer>
+    <div class="h">See you in St Ives 🌊</div>
+    <div style="margin-top:8px">Tap any day above · expand cards for details, costs &amp; maps.<br>Bus times: Go Cornwall 16A, valid from Feb 2026 — double-check live on the day.</div>
+  </footer>
+</div>
+
+<div class="share">
+  <a class="wa" id="waBtn" href="#" target="_blank">Share to WhatsApp</a>
+  <button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+</div>
+
+<script>
+  // ---- Day tab switching ----
+  const tabs=[...document.querySelectorAll('.tab')];
+  const days=[...document.querySelectorAll('.day')];
+  const costs=document.getElementById('costs');
+  function show(i){
+    tabs.forEach(t=>t.classList.toggle('active',+t.dataset.day===i));
+    days.forEach(d=>d.classList.toggle('active',+d.dataset.day===i));
+    // show cost summary only on the art day (Sat=3)
+    costs.style.display=(i===3)?'block':'none';
+    window.scrollTo({top:document.querySelector('nav').offsetTop-2,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>show(+t.dataset.day)));
+  costs.style.display='none';
+
+  // ---- Expandable cards ----
+  document.querySelectorAll('.card-top').forEach(top=>{
+    top.addEventListener('click',()=>top.closest('.card').classList.toggle('open'));
+  });
+
+  // ---- WhatsApp share ----
+  const msg=encodeURIComponent(
+    "🌊 St Ives long weekend · 2–6 Sept\n\n"+
+    "Wed 2 – Arrive (train via St Erth) · Joe cooks · cards + shanties at Pilchard Press\n"+
+    "Thu 3 – Bus to Zennor, 2hr coast walk to Gurnard's Head, pub lunch + bus back\n"+
+    "Fri 4 – Free day: seal safari / beaches / St Michael's Mount / scenic train\n"+
+    "Sat 5 – Art day: life drawing 10:30 (£30) + Hepworth garden, Tate & galleries\n"+
+    "Sun 6 – Leave\n\n"+
+    "Full interactive plan (tap each day for times, costs & maps):\n"+
+    window.location.href
+  );
+  document.getElementById('waBtn').href="https://wa.me/?text="+msg;
+</script>
+</body>
+</html>
